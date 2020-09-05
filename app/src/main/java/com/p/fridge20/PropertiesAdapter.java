@@ -6,19 +6,17 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.p.fridge20.addition.AddingActivity;
+import com.p.fridge20.subtraction.SubtractActivity;
 
 import java.util.ArrayList;
 
 //1. Need to create inner class ViewHolder
-public class PropertiesAdapter extends RecyclerView.Adapter<PropertiesAdapter.ViewHolder> {
+public class PropertiesAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private ArrayList<Property> properties;
     private Context context;
@@ -37,20 +35,27 @@ public class PropertiesAdapter extends RecyclerView.Adapter<PropertiesAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-        holder.propertyName.setText(properties.get(position).getPropertyName());
-
+    public void onBindViewHolder(@NonNull  ViewHolder holder, int position) {
+        holder.getPropertyName().setText(properties.get(position).getPropertyName());
         Glide.with(context)
                 .asBitmap()
                 .load(properties.get(position).getImageSrc())
-                .into(holder.image);
+                .into(holder.getImage());
 
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClickListener(View v, int position) {
-                Intent intent = new Intent(context, AddingActivity.class);
-                context.startActivity(intent);
-                Toast.makeText(context, properties.get(position).getPropertyName() + " Selected", Toast.LENGTH_SHORT).show();
+                switch (position) {
+                    case 0:
+                        Intent i0 = new Intent(context, AddingActivity.class);
+                        context.startActivity(i0);
+                        break;
+                    case 1:
+                        Intent i1 = new Intent(context, SubtractActivity.class);
+                        context.startActivity(i1);
+                        break;
+                }
+                Toast.makeText(context,properties.get(position).getPropertyName() + " Selected",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -63,30 +68,5 @@ public class PropertiesAdapter extends RecyclerView.Adapter<PropertiesAdapter.Vi
     public void setProperties(ArrayList<Property> properties) {
         this.properties = properties;
         notifyDataSetChanged();
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private TextView propertyName;
-        private CardView property;
-        private ImageView image;
-        ItemClickListener itemClickListener;
-
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            propertyName = itemView.findViewById(R.id.property_name);
-            property = itemView.findViewById(R.id.property);
-            image = itemView.findViewById(R.id.image);
-
-            itemView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View v) {
-            this.itemClickListener.onItemClickListener(v, getLayoutPosition());
-        }
-
-        public void setItemClickListener(ItemClickListener ic) {
-            this.itemClickListener = ic;
-        }
     }
 }
