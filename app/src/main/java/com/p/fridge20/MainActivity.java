@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         properties.add(new Property("Lista zakupów", R.drawable.list,3));
         properties.add(new Property("Wyświetl produkty", R.drawable.read,4));
 
-        PropertiesAdapter adapter = new PropertiesAdapter(this);
+        PropertiesAdapter adapter = new PropertiesAdapter(this, properties);
         adapter.setProperties(properties);
 
         propertiesRecView.setAdapter(adapter);
