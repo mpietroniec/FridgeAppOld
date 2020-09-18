@@ -4,7 +4,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".review.ReviewRowActivity">
+        tools:context=".review.ReviewRowActivity"
+        android:id="@+id/reviewLayout">
 
     <RelativeLayout
             android:layout_width="match_parent"

@@ -18,7 +18,7 @@ public class AddingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.adding_activity);
 
-        nameOfProduct = findViewById(R.id.edtTxtName);
+        nameOfProduct = findViewById(R.id.add_name);
         amountsOfProducts = findViewById(R.id.add_amount);
         priceOfProduct = findViewById(R.id.add_price);
         addButton = findViewById(R.id.add_button);
@@ -28,8 +28,8 @@ public class AddingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 DatabaseHelper myDB = new DatabaseHelper(AddingActivity.this);
                 myDB.addProduct(nameOfProduct.getText().toString().trim(),
-                        Integer.parseInt(amountsOfProducts.getText().toString().trim()),
-                        Float.parseFloat(priceOfProduct.getText().toString().trim()));
+                        Integer.parseInt(amountsOfProducts.getText().toString().trim())/*,
+                        Float.parseFloat(priceOfProduct.getText().toString().trim())*/);
             }
         });
     }

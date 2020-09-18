@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.p.fridge20.addition.AddingActivity;
+import com.p.fridge20.review.ReviewActivity;
 import com.p.fridge20.subtraction.SubtractActivity;
 
 import java.util.ArrayList;
@@ -53,6 +54,11 @@ public class PropertiesAdapter extends RecyclerView.Adapter<ViewHolder> {
                     case 1:
                         Intent i1 = new Intent(context, SubtractActivity.class);
                         context.startActivity(i1);
+                        break;
+                    case 2:
+                    case 3:
+                        Intent i3 = new Intent(context, ReviewActivity.class);
+                        context.startActivity(i3);
                         break;
                 }
                 Toast.makeText(context,properties.get(position).getPropertyName() + " Selected",Toast.LENGTH_SHORT).show();

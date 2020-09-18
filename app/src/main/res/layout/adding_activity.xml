@@ -12,7 +12,7 @@
             android:layout_height="wrap_content"
             android:hint="Nazwa produktu"
             android:layout_marginTop="100dp"
-            android:id="@+id/edtTxtName"
+            android:id="@+id/add_name"
             android:textColor="@color/colorAccent"
             android:textStyle="bold|italic"/>
 
@@ -23,7 +23,7 @@
             android:layout_centerInParent="true"
             android:id="@+id/add_amount"
             android:textColor="@color/colorAccent"
-            android:layout_below="@+id/edtTxtName"
+            android:layout_below="@+id/add_name"
             android:textStyle="bold|italic"
             android:layout_marginTop="20dp"/>
 

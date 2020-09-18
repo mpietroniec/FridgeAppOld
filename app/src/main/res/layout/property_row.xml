@@ -15,7 +15,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/property_name"
-                android:text="Property name"
+                android:text="@string/property_name"
                 android:layout_centerHorizontal="true"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"/>
