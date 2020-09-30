@@ -1,7 +1,6 @@
 package com.p.fridge20.review;
 
 import android.database.Cursor;
-import android.view.MenuInflater;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,7 +31,7 @@ public class ReviewActivity extends AppCompatActivity {
         product_amount = new ArrayList<>();
 
         storeDataInArrays();
-        reviewAdapter = new ReviewAdapter(this,  product_id, product_name, product_amount);
+        reviewAdapter = new ReviewAdapter(ReviewActivity.this, this,  product_id, product_name, product_amount);
         recyclerView.setAdapter(reviewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(ReviewActivity.this));
 
@@ -50,6 +49,5 @@ public class ReviewActivity extends AppCompatActivity {
             }
         }
     }
-
 
 }

@@ -3,9 +3,12 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="wrap_content" xmlns:app="http://schemas.android.com/apk/res-auto"
         tools:context=".review.ReviewRowActivity"
-        android:id="@+id/reviewLayout">
+        app:cardElevation="2dp"
+        app:cardCornerRadius="5dp"
+        android:id="@+id/reviewLayout"
+>
 
     <RelativeLayout
             android:layout_width="match_parent"
@@ -15,7 +18,7 @@
                 android:id="@+id/product_id_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"
+                android:text="@string/_1"
                 android:textSize="40sp"
                 android:textStyle="bold"/>
 
@@ -24,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16sp"
-                android:text="title_1"
+                android:text="@string/title_1"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_toEndOf="@+id/product_id_txt"/>
@@ -34,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16sp"
                 android:layout_marginTop="8sp"
-                android:text="amount"
+                android:text="@string/amount"
                 android:layout_toEndOf="@id/product_id_txt"
                 android:layout_below="@+id/product_name_txt"/>
     </RelativeLayout>

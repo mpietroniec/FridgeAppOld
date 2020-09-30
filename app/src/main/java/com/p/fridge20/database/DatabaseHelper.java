@@ -11,12 +11,12 @@ import androidx.annotation.Nullable;
 public class DatabaseHelper extends SQLiteOpenHelper {
     private Context context;
     private static final String DATABASE_NAME = "Fridge.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     private static final String TABLE_NAME = "my_products";
-    private static final String COLUMN_ID = "_id";
+    private static final String COLUMN_ID = "id";
     private static final String COLUMN_NAME = "product_name";
-    private static final String COLUMN_AMOUNT = "amount_of_products";
+    private static final String COLUMN_AMOUNT = "product_amount";
     private static final String COLUMN_PRICE = "product_price";
 
     public DatabaseHelper(@Nullable Context context) {
@@ -65,10 +65,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public void deleteProduct(String name, int amount) {
+    public void deleteOneRow(String row_id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
+        long result = db.delete(TABLE_NAME, "_id=?", new String[]{row_id});
+        if (result == -1) {
+            Toast.makeText(context, "Failed to delete", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Successfully deleted", Toast.LENGTH_SHORT).show();
+        }
+    }
 
+    public void updateData(String row_id,String product_name, String product_amount){
+        SQLiteDatabase database = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(COLUMN_AMOUNT,product_amount);
+        contentValues.put(COLUMN_NAME,product_name);
+
+        long result = database.update(TABLE_NAME,contentValues,"id=?", new String[]{row_id});
+        if(result==-1){
+            Toast.makeText(context,"Failed to update.", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Successfully updated!", Toast.LENGTH_SHORT).show();
+        }
     }
 }
 
