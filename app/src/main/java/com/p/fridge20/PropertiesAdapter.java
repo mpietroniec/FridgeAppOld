@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.p.fridge20.addition.AddingActivity;
 import com.p.fridge20.review.ReviewActivity;
+import com.p.fridge20.shoppingList.ShoppingListActivity;
 import com.p.fridge20.subtraction.SubtractActivity;
 
 import java.util.ArrayList;
@@ -56,6 +57,9 @@ public class PropertiesAdapter extends RecyclerView.Adapter<ViewHolder> {
                         context.startActivity(i1);
                         break;
                     case 2:
+                        Intent i2 = new Intent(context, ShoppingListActivity.class);
+                        context.startActivity(i2);
+                        break;
                     case 3:
                         Intent i3 = new Intent(context, ReviewActivity.class);
                         context.startActivity(i3);

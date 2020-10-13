@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:id="@+id/shopping_list_addition"
+        tools:context=".shoppingList.AddToShoppingList">
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nazwa produktu"
+            android:layout_marginTop="100dp"
+            android:id="@+id/shopping_list_add_name"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold|italic"/>
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ilość"
+            android:id="@+id/shopping_list_add_amount"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold|italic"
+            android:layout_below="@+id/shopping_list_add_name"
+            android:layout_marginTop="20dp"/>
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/shopping_list_add_amount"
+            android:layout_marginTop="200dp"
+            android:layout_centerHorizontal="true">
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DODAJ"
+                android:id="@+id/shopping_list_add_button"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KOLEJNY PRODUKT"
+                android:id="@+id/shopping_list_add_next_btn"
+                android:layout_toRightOf="@+id/shopping_list_add_button"
+                android:layout_marginLeft="15dp"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WSTECZ"
+                android:id="@+id/shopping_list_add_end"
+                android:layout_toRightOf="@+id/shopping_list_add_next_btn"
+                android:layout_marginLeft="15dp"/>
+    </RelativeLayout>
+</RelativeLayout>

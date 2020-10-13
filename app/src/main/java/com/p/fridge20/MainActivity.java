@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<Property> properties = new ArrayList<>();
         properties.add(new Property("Dodawanie produktów", R.drawable.plus,1));
-        properties.add(new Property("Odejmowanie produktów", R.drawable.min,2));
+        properties.add(new Property("Miesieczny bilans", R.drawable.money,2));
         properties.add(new Property("Lista zakupów", R.drawable.list,3));
         properties.add(new Property("Wyświetl produkty", R.drawable.read,4));
 

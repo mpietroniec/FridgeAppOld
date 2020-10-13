@@ -43,7 +43,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
         holder.product_name_txt.setText(String.valueOf(product_name.get(position)));
         holder.product_amount_txt.setText(String.valueOf(product_amount.get(position)));
         //UpdateActivity
-        holder.mainLayout.setOnClickListener(new View.OnClickListener() {
+        holder.reviewLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ProductDetails.class);
@@ -63,14 +63,14 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
     public class ReviewViewHolder extends RecyclerView.ViewHolder {
 
         TextView product_id_txt, product_name_txt, product_amount_txt;
-        CardView mainLayout;
+        CardView reviewLayout;
 
         public ReviewViewHolder(@NonNull View itemView) {
             super(itemView);
             product_id_txt = itemView.findViewById(R.id.product_id_txt);
             product_name_txt = itemView.findViewById(R.id.product_name_txt);
             product_amount_txt = itemView.findViewById(R.id.product_amount_txt);
-            mainLayout = itemView.findViewById(R.id.reviewLayout);
+            reviewLayout = itemView.findViewById(R.id.reviewLayout);
         }
     }
 }
