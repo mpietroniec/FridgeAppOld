@@ -31,7 +31,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
 
     @NonNull
     @Override
-    public ReviewViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ReviewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.activity_review_row, parent, false);
         return new ReviewViewHolder(view);
@@ -60,7 +60,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
         return product_id.size();
     }
 
-    public class ReviewViewHolder extends RecyclerView.ViewHolder {
+    public static class ReviewViewHolder extends RecyclerView.ViewHolder {
 
         TextView product_id_txt, product_name_txt, product_amount_txt;
         CardView reviewLayout;

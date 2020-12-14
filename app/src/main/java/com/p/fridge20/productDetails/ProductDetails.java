@@ -15,9 +15,9 @@ import com.p.fridge20.database.DatabaseHelper;
 
 public class ProductDetails extends AppCompatActivity {
 
-    TextView name_input;
-    EditText amount_input;
-    Button update_button, delete_button;
+    TextView detailsProductNameOutput;
+    EditText detailsAmountInput;
+    Button detailsUpdateButton, detailsDeleteButton;
 
     String id;
     String product_name, product_amount;
@@ -27,10 +27,10 @@ public class ProductDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_details);
 
-        name_input = findViewById(R.id.name_input_update);
-        amount_input = findViewById(R.id.amount_input_update);
-        update_button = findViewById(R.id.update_button);
-        delete_button = findViewById(R.id.delete_button);
+        detailsProductNameOutput = findViewById(R.id.name_input_update);
+        detailsAmountInput = findViewById(R.id.amount_input_update);
+        detailsUpdateButton = findViewById(R.id.update_button);
+        detailsDeleteButton = findViewById(R.id.delete_button);
 
         getAndSetIntentData();
 
@@ -39,15 +39,15 @@ public class ProductDetails extends AppCompatActivity {
             actionBar.setTitle("Zmień lub usuń produkt");
         }
 
-        update_button.setOnClickListener(new View.OnClickListener() {
+        detailsUpdateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatabaseHelper db = new DatabaseHelper(ProductDetails.this);
-                product_amount = amount_input.getText().toString().trim();
+                product_amount = detailsAmountInput.getText().toString().trim();
                 db.updateData(id,product_name, product_amount);
             }
         });
-        delete_button.setOnClickListener(new View.OnClickListener() {
+        detailsDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ConfirmDialog();
@@ -66,28 +66,27 @@ public class ProductDetails extends AppCompatActivity {
             product_amount = getIntent().getStringExtra("product_amount");
 
             //Setting Intent Data
-            name_input.setText(product_name);
-            amount_input.setText(product_amount);
+            detailsProductNameOutput.setText(product_name);
+            detailsAmountInput.setText(product_amount);
         } else {
-            Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Brak danych", Toast.LENGTH_SHORT).show();
         }
     }
 
     void ConfirmDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Delete " + product_name + " ?");
-        builder.setMessage("Are you sure you want to delete " + product_name + " ?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        builder.setTitle("Usunąć " + product_name + " ?");
+        builder.setMessage("Czy na pewno usunąć " + product_name + " ?");
+        builder.setPositiveButton("Tak", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
                 DatabaseHelper databaseHelper = new DatabaseHelper(ProductDetails.this);
-                databaseHelper.deleteOneRow(id);
+                databaseHelper.deleteOneRowFromFridge(id);
             }
         });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Nie", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
-
             }
         });
         builder.create().show();

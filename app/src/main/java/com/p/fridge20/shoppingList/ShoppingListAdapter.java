@@ -17,14 +17,15 @@ public class ShoppingListAdapter extends RecyclerView.Adapter<ShoppingListAdapte
 
     Context context;
     Activity shoppingListActivity;
-    ArrayList shopping_list_product_id, shopping_list_product_name, shopping_list_product_amount;
+    ArrayList shopping_list_product_id, shopping_list_product_name, shopping_list_product_amount, shopping_list_shop_name;
 
-    public ShoppingListAdapter(Context context, Activity shoppingListActivity, ArrayList shopping_list_product_id, ArrayList shopping_list_product_name, ArrayList shopping_list_product_amount) {
+    public ShoppingListAdapter(Context context, Activity shoppingListActivity, ArrayList shopping_list_product_id, ArrayList shopping_list_product_name, ArrayList shopping_list_product_amount, ArrayList shopping_list_shop_name) {
         this.context = context;
         this.shoppingListActivity = shoppingListActivity;
         this.shopping_list_product_id = shopping_list_product_id;
         this.shopping_list_product_name = shopping_list_product_name;
         this.shopping_list_product_amount = shopping_list_product_amount;
+        this.shopping_list_shop_name = shopping_list_shop_name;
     }
 
     @NonNull
@@ -37,8 +38,9 @@ public class ShoppingListAdapter extends RecyclerView.Adapter<ShoppingListAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ShoppingListAdapter.ShoppingListViewHolder holder, final int position) {
-        holder.shopping_list_name_txt.setText(String.valueOf(shopping_list_product_name.get(position)));
-        holder.shopping_list_amount_txt.setText(String.valueOf(shopping_list_product_amount.get(position)));
+        holder.shoppingListNameTxt.setText(String.valueOf(shopping_list_product_name.get(position)));
+        holder.shoppingListAmountTxt.setText(String.valueOf(shopping_list_product_amount.get(position)));
+        holder.shoppingListShopNameTxt.setText(String.valueOf(shopping_list_shop_name.get(position)));
     }
 
     @Override
@@ -48,14 +50,15 @@ public class ShoppingListAdapter extends RecyclerView.Adapter<ShoppingListAdapte
 
     public class ShoppingListViewHolder extends RecyclerView.ViewHolder {
 
-        TextView shopping_list_name_txt, shopping_list_amount_txt;
-        CardView shopping_list_layout;
+        TextView shoppingListNameTxt, shoppingListAmountTxt, shoppingListShopNameTxt;
+        CardView shoppingListLayout;
 
         public ShoppingListViewHolder(@NonNull View itemView) {
             super(itemView);
-            shopping_list_name_txt = itemView.findViewById(R.id.shopping_list_name_txt);
-            shopping_list_amount_txt = itemView.findViewById(R.id.shopping_list_amount_txt);
-            shopping_list_layout = itemView.findViewById(R.id.shopping_list_layout);
+            shoppingListNameTxt = itemView.findViewById(R.id.shopping_list_name_txt);
+            shoppingListAmountTxt = itemView.findViewById(R.id.shopping_list_amount_txt);
+            shoppingListShopNameTxt = itemView.findViewById(R.id.shopping_list_shop_name_txt);
+            shoppingListLayout = itemView.findViewById(R.id.shopping_list_layout);
         }
     }
 }

@@ -20,7 +20,7 @@ public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickL
         super(itemView);
         propertyName = itemView.findViewById(R.id.property_name);
         property = itemView.findViewById(R.id.property);
-        image = itemView.findViewById(R.id.image);
+        image = itemView.findViewById(R.id.main_property_image);
 
         itemView.setOnClickListener(this);
     }

@@ -1,6 +1,5 @@
 package com.p.fridge20;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -13,15 +12,13 @@ import com.bumptech.glide.Glide;
 import com.p.fridge20.addition.AddingActivity;
 import com.p.fridge20.review.ReviewActivity;
 import com.p.fridge20.shoppingList.ShoppingListActivity;
-import com.p.fridge20.subtraction.SubtractActivity;
-
 import java.util.ArrayList;
 
 //1. Need to create inner class ViewHolder
 public class PropertiesAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private ArrayList<Property> properties;
-    private Context context;
+    private final Context context;
 
     public PropertiesAdapter(Context context, ArrayList<Property> properties) {
         this.context = context;
@@ -53,19 +50,15 @@ public class PropertiesAdapter extends RecyclerView.Adapter<ViewHolder> {
                         context.startActivity(i0);
                         break;
                     case 1:
-                        Intent i1 = new Intent(context, SubtractActivity.class);
+                        Intent i1 = new Intent(context, ShoppingListActivity.class);
                         context.startActivity(i1);
                         break;
                     case 2:
-                        Intent i2 = new Intent(context, ShoppingListActivity.class);
+                        Intent i2 = new Intent(context, ReviewActivity.class);
                         context.startActivity(i2);
                         break;
-                    case 3:
-                        Intent i3 = new Intent(context, ReviewActivity.class);
-                        context.startActivity(i3);
-                        break;
                 }
-                Toast.makeText(context,properties.get(position).getPropertyName() + " Selected",Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,properties.get(position).getPropertyName(), Toast.LENGTH_SHORT).show();
             }
         });
     }

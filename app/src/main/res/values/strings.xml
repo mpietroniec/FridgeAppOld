@@ -6,7 +6,6 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="property_name">Property name</string>
@@ -15,4 +14,14 @@
     <string name="amount">amount</string>
     <string name="title">Title</string>
     <string name="name">name</string>
+    <string name="ilosc">Ilość</string>
+    <string name="dodaj">DODAJ</string>
+    <string name="kolejny_produkt">KOLEJNY PRODUKT</string>
+    <string name="nazwa_produktu">Nazwa produktu</string>
+    <string name="wstecz">WSTECZ</string>
+    <string name="shop">shop</string>
+    <string name="sklep">Sklep</string>
+    <string name="id_do_listy_zakupow">Idź do listy zakupów</string>
+    <string name="eksportuj_plik_csv">Eksportuj plik CSV</string>
+    <string name="delete_all">Delete All</string>
 </resources>

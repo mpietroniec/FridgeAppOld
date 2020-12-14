@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.p.fridge20.R;
 import com.p.fridge20.database.DatabaseHelper;
 import com.p.fridge20.shoppingList.AddToShoppingList;
-
 import java.util.ArrayList;
 
 public class ReviewActivity extends AppCompatActivity {
@@ -40,13 +39,12 @@ public class ReviewActivity extends AppCompatActivity {
         reviewAdapter = new ReviewAdapter(ReviewActivity.this, this,  product_id, product_name, product_amount);
         recyclerView.setAdapter(reviewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(ReviewActivity.this));
-
     }
 
     void storeDataInArrays() {
         Cursor cursor = database.readAllDataFromFridge();
         if (cursor.getCount() == 0) {
-            Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Brak danych", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()){
                 product_id.add(cursor.getString(0));
@@ -60,7 +58,7 @@ public class ReviewActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_shopping_list, menu);
+        inflater.inflate(R.menu.menu_review, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

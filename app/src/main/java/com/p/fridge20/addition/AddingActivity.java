@@ -1,11 +1,8 @@
 package com.p.fridge20.addition;
 
-import android.content.Context;
 import android.content.Intent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.p.fridge20.MainActivity;
@@ -14,18 +11,17 @@ import com.p.fridge20.database.DatabaseHelper;
 
 public class AddingActivity extends AppCompatActivity {
 
-    EditText nameOfProduct, amountsOfProducts, priceOfProduct;
+    EditText nameOfProductEdit, amountsOfProductsEdit;
     Button addButton, nextAddButton, endAdd;
-    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.adding_activity);
 
-        nameOfProduct = findViewById(R.id.add_name);
-        amountsOfProducts = findViewById(R.id.add_amount);
-        priceOfProduct = findViewById(R.id.add_price);
+        nameOfProductEdit = findViewById(R.id.add_name);
+        amountsOfProductsEdit = findViewById(R.id.add_amount);
+
         addButton = findViewById(R.id.add_button);
         nextAddButton = findViewById(R.id.add_next_btn);
         endAdd = findViewById(R.id.add_end);
@@ -33,16 +29,22 @@ public class AddingActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    DatabaseHelper myDB = new DatabaseHelper(AddingActivity.this);
-                    myDB.addProductToFridge(nameOfProduct.getText().toString().trim(),
-                            Integer.parseInt(amountsOfProducts.getText().toString().trim())/*,
-                            Float.parseFloat(priceOfProduct.getText().toString().trim())*/);
-                } catch (NumberFormatException | NullPointerException e) {
-                    Toast.makeText(context, "Podaj dane produktu", Toast.LENGTH_SHORT).show();
+                String nameOfProduct = nameOfProductEdit.getText().toString().trim();
+                String amount = amountsOfProductsEdit.getText().toString().trim();
+                try{
+                    if(!nameOfProduct.isEmpty()) {
+                        int dbAmount = Integer.parseInt(amount);
+                        DatabaseHelper myDB = new DatabaseHelper(AddingActivity.this);
+                        myDB.addProductToFridge(nameOfProduct, dbAmount);
+                    } else {
+                        Toast.makeText(AddingActivity.this, "Podaj nazwę produktu", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                catch (NumberFormatException e){
+                    Toast.makeText(AddingActivity.this, "Podaj ilość produktów", Toast.LENGTH_SHORT).show();
                 }
             }
-        });
+        }); 
 
         nextAddButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+            android:id="@+id/action_shopping_list"
+            android:title="@string/id_do_listy_zakupow"
+            app:showAsAction="never"/>
+    <item
+            android:id="@+id/export_csv_file"
+            android:title="@string/eksportuj_plik_csv"
+            app:showAsAction="never"/>
+</menu>
