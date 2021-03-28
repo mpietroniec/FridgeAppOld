@@ -6,12 +6,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private final Context context;
     private static final String DATABASE_NAME = "Fridge.db";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 6;
     private static final String TABLE_NAME_FRIDGE = "my_product";
     private static final String COLUMN_ID_FRIDGE = "id";
     private static final String COLUMN_NAME_FRIDGE = "product_name";
@@ -87,7 +88,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (database != null) {
             cursor = database.rawQuery(query, null);
         }
-        return cursor; }
+        return cursor;
+    }
 
     public Cursor readAllDataFromShoppingList() {
         String query = "SELECT * FROM " + TABLE_NAME_SHOPPING_LIST;
@@ -110,9 +112,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void deleteOneRowFromShoppingList(String row_id){
+    public void deleteOneRowFromShoppingList(String row_id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        long result = db.delete(TABLE_NAME_SHOPPING_LIST,"id=?", new String[]{row_id});
+        long result = db.delete(TABLE_NAME_SHOPPING_LIST, "id=?", new String[]{row_id});
         if (result == -1) {
             Toast.makeText(context, "Nie udało sie usunąć", Toast.LENGTH_SHORT).show();
         } else {

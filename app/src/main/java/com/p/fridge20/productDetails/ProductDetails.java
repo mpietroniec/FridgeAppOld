@@ -6,10 +6,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+
 import com.p.fridge20.R;
 import com.p.fridge20.database.DatabaseHelper;
 
@@ -44,7 +47,7 @@ public class ProductDetails extends AppCompatActivity {
             public void onClick(View v) {
                 DatabaseHelper db = new DatabaseHelper(ProductDetails.this);
                 product_amount = detailsAmountInput.getText().toString().trim();
-                db.updateData(id,product_name, product_amount);
+                db.updateData(id, product_name, product_amount);
             }
         });
         detailsDeleteButton.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +76,7 @@ public class ProductDetails extends AppCompatActivity {
         }
     }
 
-    void ConfirmDialog(){
+    void ConfirmDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Usunąć " + product_name + " ?");
         builder.setMessage("Czy na pewno usunąć " + product_name + " ?");

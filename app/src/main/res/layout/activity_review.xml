@@ -4,8 +4,20 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".review.ReviewActivity"
-        android:padding="20dp">
+        tools:context=".review.ReviewActivity">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_add_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="25dp"
+        android:backgroundTint="#253AB8"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_baseline_add_45" />
 
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"

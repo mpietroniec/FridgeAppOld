@@ -15,6 +15,7 @@
         android:backgroundTint="@color/colorPrimary"
         android:drawableStart="@drawable/ic_baseline_playlist_add_30"
         android:hint="@string/nazwa_produktu"
+        android:paddingStart="12dp"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold|italic" />
 
@@ -28,6 +29,7 @@
         android:drawableStart="@drawable/ic_baseline_north_east_30"
         android:hint="@string/ilosc"
         android:inputType="number"
+        android:paddingStart="12dp"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold|italic" />
 
@@ -40,6 +42,7 @@
         android:backgroundTint="@color/colorPrimary"
         android:drawableStart="@drawable/ic_baseline_shopping_cart_30"
         android:hint="@string/sklep"
+        android:paddingStart="12dp"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold|italic" />
 

@@ -1,7 +1,9 @@
 package com.p.fridge20.review;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+
 import com.p.fridge20.R;
 
 public class ReviewRowActivity extends AppCompatActivity {

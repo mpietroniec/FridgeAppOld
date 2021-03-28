@@ -5,8 +5,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+
 import com.p.fridge20.R;
 import com.p.fridge20.database.DatabaseHelper;
 
@@ -38,7 +41,7 @@ public class AddToShoppingList extends AppCompatActivity {
                     DatabaseHelper myDB = new DatabaseHelper(AddToShoppingList.this);
                     myDB.addProductToShoppingList(name, dbAmount, shopName);
 
-                } else{
+                } else {
                     Toast.makeText(AddToShoppingList.this, "Podaj pozostałe dane", Toast.LENGTH_SHORT).show();
                 }
             } catch (NumberFormatException e) {
